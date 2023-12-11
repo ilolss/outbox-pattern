@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "github.com/ilolss/outbox-pattern/internal/protogen";
+
+package receiver;
+
+import "google/protobuf/empty.proto";
+
+service Receiver {
+    rpc Receive(Task) returns (google.protobuf.Empty) {}
+}
+
+message Task {
+    string name = 1;
+    string description = 2;
+}
